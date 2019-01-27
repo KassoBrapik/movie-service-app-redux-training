@@ -1,0 +1,26 @@
+body {
+  background: #fdfdfd; }
+
+.invalid-feedback {
+  display: block; }
+
+input.invalid {
+  border-color: #dc3545; }
+
+.circle {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: gray;
+  margin: 1em;
+  border-radius: 50px;
+  text-align: center; }
+  .circle.is-disabled {
+    pointer-events: none; }
+
+.img--height {
+  max-height: 161.84px;
+  object-fit: cover; }
+
+#text-decor {
+  text-decoration: none; }

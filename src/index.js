@@ -2,29 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./stylesheets/styles.css";
-import { createStore } from "redux";
-const GET_MOVIES = "GET_MOVIES";
+import "./stylesheets/index.css";
+import store from './store/store';
+import {Provider} from 'react-redux';
 
-export const getMoviesAction = data => {
-  return { type: GET_MOVIES, payload: data };
-};
+window.store = store;
 
-const initialState = {
-  movies: [],
-  isFetched: false
-};
-const reducer = (state, action) => {
-  //   console.log("reducer", state, action);
-  switch (action.type) {
-    case GET_MOVIES:
-      return { ...state, movies: action.payload, isFetched: true };
-    default:
-      return state;
-  }
-};
-
-const store = createStore(reducer, initialState);
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App store={store} />, rootElement);
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
+);
